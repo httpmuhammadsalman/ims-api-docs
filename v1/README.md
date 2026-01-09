@@ -17,9 +17,9 @@ Authorization: Bearer {access_token}
 ```
 
 **Getting a Token:**
-1. Register a new user via `/auth/register`
-2. Or login via `/auth/login`
-3. Extract `token` from the response
+1. Register a new user via `/auth/register` (no token returned)
+2. Login via `/auth/login` to get access token
+3. Extract `token` from the login response
 4. Include it in all subsequent requests
 
 ## 📦 API Modules
@@ -75,11 +75,12 @@ Content-Type: application/json
   "success": true,
   "message": "User registered successfully",
   "data": {
-    "user": { ... },
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+    "user": { ... }
   }
 }
 ```
+
+**Note:** After registration, login via `/auth/login` to get an access token.
 
 ### 2. Login
 

@@ -97,13 +97,16 @@ Content-Type: application/json
 
 ### Step 2: Get Access Token
 
-Response will include an access token:
+**Note:** Register endpoint does not return a token. You must login after registration to get an access token.
+
+Login response will include an access token:
 ```json
 {
   "success": true,
+  "message": "Login successful",
   "data": {
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGc...",
-    "user": { ... }
+    "user": { ... },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
   }
 }
 ```

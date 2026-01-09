@@ -66,11 +66,12 @@ Register a new user account. If `company_name` is provided, the user will be cre
       ],
       "created_at": "2024-01-01T12:00:00.000000Z",
       "updated_at": "2024-01-01T12:00:00.000000Z"
-    },
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+    }
   }
 }
 ```
+
+**Note:** After successful registration, you need to login via `/api/v1/auth/login` to get an access token.
 
 **Error Response (422) - Validation Error:**
 ```json
