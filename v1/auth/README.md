@@ -97,6 +97,135 @@ Authenticate a user and get access token.
 
 ---
 
+## Forgot Password
+
+Send a password reset link to the user's email address.
+
+**Endpoint:** `POST /api/v1/auth/forgot-password`
+
+**Authentication:** Not required
+
+**Request Body:**
+```json
+{
+  "email": "string (email)"
+}
+```
+
+**Validation Rules:**
+- `email`: required, string, email, must exist in users table
+
+**Success Response (200):**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - User Not Found:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (422) - Validation Error:**
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "errors": {
+    "email": ["string"]
+  }
+}
+```
+
+**Note:** A password reset email will be sent to the provided email address if it exists in the system. The reset link will expire in 60 minutes.
+
+---
+
+## Reset Password
+
+Reset user password using the token received via email.
+
+**Endpoint:** `POST /api/v1/auth/reset-password`
+
+**Authentication:** Not required
+
+**Request Body:**
+```json
+{
+  "email": "string (email)",
+  "token": "string",
+  "password": "string",
+  "password_confirmation": "string"
+}
+```
+
+**Validation Rules:**
+- `email`: required, string, email, must exist in users table
+- `token`: required, string, must be valid reset token
+- `password`: required, string, min:8, must be confirmed
+- `password_confirmation`: required, string, must match password
+
+**Success Response (200):**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - Invalid Token:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - Expired Token:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (422) - Validation Error:**
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "errors": {
+    "email": ["string"],
+    "token": ["string"],
+    "password": ["string"]
+  }
+}
+```
+
+**Complete Example (cURL):**
+```bash
+curl -X POST http://your-domain.com/api/v1/auth/reset-password \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "token": "abc123xyz789def456ghi012jkl345mno678pqr901stu234vwx567yz",
+    "password": "NewSecurePass123!",
+    "password_confirmation": "NewSecurePass123!"
+  }'
+```
+
+**Note:** 
+- The token is received via email after requesting password reset
+- Token expires after 60 minutes
+- Token is single-use and will be deleted after successful password reset
+
+---
+
 ## Logout
 
 Logout the authenticated user and revoke all access tokens.

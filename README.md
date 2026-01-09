@@ -1,6 +1,6 @@
-# 📦 Inventory Management System - API Documentation
+# 📦 KhataSync - API Documentation
 
-> Complete API documentation for the Inventory Management System (IMS)
+> Complete API documentation for the KhataSync (IMS)
 
 ## 🚀 Quick Start
 

@@ -1,6 +1,6 @@
-# 📦 Inventory Management System - API v1 Documentation
+# 📦 KhataSync - API v1 Documentation
 
-> Complete API documentation for version 1 of the Inventory Management System
+> Complete API documentation for version 1 of the KhataSync
 
 ## 🌐 Base URL
 
@@ -29,6 +29,8 @@ Complete user authentication and account management.
 
 - **Register** - Create new user account
 - **Login** - Authenticate and get access token
+- **Forgot Password** - Request password reset link
+- **Reset Password** - Reset password with token
 - **Logout** - Revoke all access tokens
 - **Delete Account** - Soft delete user account
 
@@ -113,6 +115,8 @@ Content-Type: application/json
 |----------|--------|---------------|-------------|
 | `/auth/register` | `POST` | ❌ | Register new user |
 | `/auth/login` | `POST` | ❌ | Login user |
+| `/auth/forgot-password` | `POST` | ❌ | Request password reset |
+| `/auth/reset-password` | `POST` | ❌ | Reset password with token |
 | `/auth/logout` | `POST` | ✅ | Logout user |
 | `/auth/account` | `DELETE` | ✅ | Delete account |
 | `/auth/invite` | `POST` | ✅ | Invite user to company |
@@ -122,6 +126,8 @@ Content-Type: application/json
 
 - [🔐 Register User](./auth/README.md#register)
 - [🔑 Login](./auth/README.md#login)
+- [🔒 Forgot Password](./auth/README.md#forgot-password)
+- [🔓 Reset Password](./auth/README.md#reset-password)
 - [🚪 Logout](./auth/README.md#logout)
 - [🗑️ Delete Account](./auth/README.md#delete-account)
 - [📧 Invite User](./invitations/README.md#invite-user)
