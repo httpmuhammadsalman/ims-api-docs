@@ -44,8 +44,8 @@ Authorization: Bearer {access_token}
 **Request Body:**
 ```json
 {
-  "email": "user@example.com",
-  "company_id": 1  // Optional - defaults to owner's default company
+  "email": "string (email)",
+  "company_id": "integer"  // Optional - defaults to owner's default company
 }
 ```
 
@@ -159,7 +159,7 @@ Authorization: Bearer {access_token}
 **Request Body:**
 ```json
 {
-  "token": "abc123xyz..."
+  "token": "string (token)"
 }
 ```
 

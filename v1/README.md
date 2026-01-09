@@ -56,16 +56,16 @@ Shared information across all APIs.
 
 ### 1. Register a New User
 
-```bash
+```json
 POST /api/v1/auth/register
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "password_confirmation": "password123",
-  "company_name": "My Company"
+  "name": "string",
+  "email": "string (email)",
+  "password": "string",
+  "password_confirmation": "string",
+  "company_name": "string"
 }
 ```
 
@@ -84,13 +84,13 @@ Content-Type: application/json
 
 ### 2. Login
 
-```bash
+```json
 POST /api/v1/auth/login
 Content-Type: application/json
 
 {
-  "email": "john@example.com",
-  "password": "password123"
+  "email": "string (email)",
+  "password": "string"
 }
 ```
 

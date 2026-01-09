@@ -71,27 +71,27 @@ The system supports a multi-company architecture:
 ### Step 1: Register or Login
 
 **Register a new user:**
-```bash
+```json
 POST /api/v1/auth/register
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "password_confirmation": "password123",
-  "company_name": "My Company"
+  "name": "string",
+  "email": "string (email)",
+  "password": "string",
+  "password_confirmation": "string",
+  "company_name": "string"
 }
 ```
 
 **Or login with existing credentials:**
-```bash
+```json
 POST /api/v1/auth/login
 Content-Type: application/json
 
 {
-  "email": "john@example.com",
-  "password": "password123"
+  "email": "string (email)",
+  "password": "string"
 }
 ```
 

@@ -33,8 +33,8 @@ Authenticate a user and get access token.
 **Request Body:**
 ```json
 {
-  "email": "john@example.com",
-  "password": "password123"
+  "email": "string (email)",
+  "password": "string"
 }
 ```
 
@@ -171,15 +171,12 @@ Register as a company owner by providing `company_name`. This creates a new comp
 
 **Request Payload:**
 ```json
-POST /api/v1/auth/register
-Content-Type: application/json
-
 {
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "SecurePass123!",
-  "password_confirmation": "SecurePass123!",
-  "company_name": "My Company"
+  "name": "string",
+  "email": "string (email)",
+  "password": "string",
+  "password_confirmation": "string",
+  "company_name": "string"
 }
 ```
 
@@ -250,15 +247,12 @@ Register with invitation token when the user is not yet registered. The email mu
 
 **Request Payload:**
 ```json
-POST /api/v1/auth/register
-Content-Type: application/json
-
 {
-  "name": "Jane Doe",
-  "email": "jane@example.com",
-  "password": "SecurePass123!",
-  "password_confirmation": "SecurePass123!",
-  "invitation_token": "abc123xyz789def456ghi012jkl345mno678pqr901stu234vwx567yz"
+  "name": "string",
+  "email": "string (email)",
+  "password": "string",
+  "password_confirmation": "string",
+  "invitation_token": "string (token)"
 }
 ```
 
@@ -334,14 +328,11 @@ Register without company or invitation. User will have no company access initial
 
 **Request Payload:**
 ```json
-POST /api/v1/auth/register
-Content-Type: application/json
-
 {
-  "name": "Bob Smith",
-  "email": "bob@example.com",
-  "password": "SecurePass123!",
-  "password_confirmation": "SecurePass123!"
+  "name": "string",
+  "email": "string (email)",
+  "password": "string",
+  "password_confirmation": "string"
 }
 ```
 
