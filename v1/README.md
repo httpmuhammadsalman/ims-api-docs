@@ -31,6 +31,8 @@ Complete user authentication and account management.
 - **Login** - Authenticate and get access token
 - **Forgot Password** - Request password reset link
 - **Reset Password** - Reset password with token
+- **Send Verification Email** - Request email verification link
+- **Verify Email** - Verify email address with token
 - **Logout** - Revoke all access tokens
 - **Delete Account** - Soft delete user account
 
@@ -117,6 +119,8 @@ Content-Type: application/json
 | `/auth/login` | `POST` | ❌ | Login user |
 | `/auth/forgot-password` | `POST` | ❌ | Request password reset |
 | `/auth/reset-password` | `POST` | ❌ | Reset password with token |
+| `/auth/send-verification-email` | `POST` | ❌ | Request email verification link |
+| `/auth/verify-email` | `POST` | ❌ | Verify email with token |
 | `/auth/logout` | `POST` | ✅ | Logout user |
 | `/auth/account` | `DELETE` | ✅ | Delete account |
 | `/auth/invite` | `POST` | ✅ | Invite user to company |
@@ -128,6 +132,8 @@ Content-Type: application/json
 - [🔑 Login](./auth/README.md#login)
 - [🔒 Forgot Password](./auth/README.md#forgot-password)
 - [🔓 Reset Password](./auth/README.md#reset-password)
+- [📧 Send Verification Email](./auth/README.md#send-verification-email)
+- [✅ Verify Email](./auth/README.md#verify-email)
 - [🚪 Logout](./auth/README.md#logout)
 - [🗑️ Delete Account](./auth/README.md#delete-account)
 - [📧 Invite User](./invitations/README.md#invite-user)

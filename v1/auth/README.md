@@ -226,6 +226,145 @@ curl -X POST http://your-domain.com/api/v1/auth/reset-password \
 
 ---
 
+## Send Verification Email
+
+Send an email verification link to the user's email address.
+
+**Endpoint:** `POST /api/v1/auth/send-verification-email`
+
+**Authentication:** Not required
+
+**Request Body:**
+```json
+{
+  "email": "string (email)"
+}
+```
+
+**Validation Rules:**
+- `email`: required, string, email, must exist in users table
+
+**Success Response (200):**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - User Not Found:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - Email Already Verified:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (422) - Validation Error:**
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "errors": {
+    "email": ["string"]
+  }
+}
+```
+
+**Note:** A verification email will be sent to the provided email address if it exists in the system and is not already verified. The verification link will expire in 24 hours.
+
+---
+
+## Verify Email
+
+Verify user email address using the token received via email.
+
+**Endpoint:** `POST /api/v1/auth/verify-email`
+
+**Authentication:** Not required
+
+**Request Body:**
+```json
+{
+  "email": "string (email)",
+  "token": "string"
+}
+```
+
+**Validation Rules:**
+- `email`: required, string, email, must exist in users table
+- `token`: required, string, must be valid verification token
+
+**Success Response (200):**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - Invalid Token:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - Expired Token:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (400) - Email Already Verified:**
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+**Error Response (422) - Validation Error:**
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "errors": {
+    "email": ["string"],
+    "token": ["string"]
+  }
+}
+```
+
+**Complete Example (cURL):**
+```bash
+curl -X POST http://your-domain.com/api/v1/auth/verify-email \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "token": "abc123xyz789def456ghi012jkl345mno678pqr901stu234vwx567yz"
+  }'
+```
+
+**Note:** 
+- The token is received via email after requesting verification email
+- Token expires after 24 hours
+- Token is single-use and will be deleted after successful verification
+- Once verified, the user's `email_verified_at` field will be updated
+
+---
+
 ## Logout
 
 Logout the authenticated user and revoke all access tokens.

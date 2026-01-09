@@ -1,6 +1,6 @@
 # 📦 KhataSync - API Documentation
 
-> Complete API documentation for the KhataSync (IMS)
+> Complete API documentation for the KhataSync (KhataSync)
 
 ## 🚀 Quick Start
 
