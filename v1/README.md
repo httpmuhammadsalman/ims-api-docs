@@ -72,8 +72,8 @@ Content-Type: application/json
 **Response:**
 ```json
 {
-  "success": true,
-  "message": "User registered successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "user": { ... }
   }

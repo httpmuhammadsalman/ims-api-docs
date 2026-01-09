@@ -45,32 +45,32 @@ Authenticate a user and get access token.
 **Success Response (200):**
 ```json
 {
-  "success": true,
-  "message": "Login successful",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "user": {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john@example.com",
-      "email_verified_at": null,
+      "id": "integer",
+      "name": "string",
+      "email": "string (email)",
+      "email_verified_at": "null|string (datetime)",
       "company": {
-        "id": 1,
-        "name": "My Company",
-        "is_default": true,
+        "id": "integer",
+        "name": "string",
+        "is_default": "boolean",
         ...
       },
       "companies": [
         {
-          "id": 1,
-          "name": "My Company",
-          "is_default": true,
+          "id": "integer",
+          "name": "string",
+          "is_default": "boolean",
           ...
         }
       ],
-      "created_at": "2024-01-01T12:00:00.000000Z",
-      "updated_at": "2024-01-01T12:00:00.000000Z"
+      "created_at": "string (datetime)",
+      "updated_at": "string (datetime)"
     },
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+    "token": "string (token)"
   }
 }
 ```
@@ -78,19 +78,19 @@ Authenticate a user and get access token.
 **Error Response (401) - Invalid Credentials:**
 ```json
 {
-  "success": false,
-  "message": "Invalid credentials"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (422) - Validation Error:**
 ```json
 {
-  "success": false,
-  "message": "Validation errors",
+  "success": "boolean",
+  "message": "string",
   "errors": {
-    "email": ["The email field is required."],
-    "password": ["The password field is required."]
+    "email": ["string"],
+    "password": ["string"]
   }
 }
 ```
@@ -115,16 +115,16 @@ Authorization: Bearer {access_token}
 **Success Response (200):**
 ```json
 {
-  "success": true,
-  "message": "Logout successful"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (401) - Unauthenticated:**
 ```json
 {
-  "success": false,
-  "message": "Unauthenticated"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
@@ -148,16 +148,16 @@ Authorization: Bearer {access_token}
 **Success Response (200):**
 ```json
 {
-  "success": true,
-  "message": "Account deleted successfully"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (401) - Unauthenticated:**
 ```json
 {
-  "success": false,
-  "message": "Unauthenticated"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
@@ -196,42 +196,42 @@ curl -X POST http://your-domain.com/api/v1/auth/register \
 **Response (201):**
 ```json
 {
-  "success": true,
-  "message": "User registered successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "user": {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john@example.com",
-      "email_verified_at": null,
+      "id": "integer",
+      "name": "string",
+      "email": "string (email)",
+      "email_verified_at": "null|string (datetime)",
       "company": {
-        "id": 1,
-        "name": "My Company",
-        "email": null,
-        "phone": null,
-        "address": null,
-        "logo": null,
-        "status": "active",
-        "is_default": true,
-        "created_at": "2024-01-01T12:00:00.000000Z",
-        "updated_at": "2024-01-01T12:00:00.000000Z"
+        "id": "integer",
+        "name": "string",
+        "email": "null|string (email)",
+        "phone": "null|string",
+        "address": "null|string",
+        "logo": "null|string (url)",
+        "status": "string",
+        "is_default": "boolean",
+        "created_at": "string (datetime)",
+        "updated_at": "string (datetime)"
       },
       "companies": [
         {
-          "id": 1,
-          "name": "My Company",
-          "email": null,
-          "phone": null,
-          "address": null,
-          "logo": null,
-          "status": "active",
-          "is_default": true,
-          "created_at": "2024-01-01T12:00:00.000000Z",
-          "updated_at": "2024-01-01T12:00:00.000000Z"
+          "id": "integer",
+          "name": "string",
+          "email": "null|string (email)",
+          "phone": "null|string",
+          "address": "null|string",
+          "logo": "null|string (url)",
+          "status": "string",
+          "is_default": "boolean",
+          "created_at": "string (datetime)",
+          "updated_at": "string (datetime)"
         }
       ],
-      "created_at": "2024-01-01T12:00:00.000000Z",
-      "updated_at": "2024-01-01T12:00:00.000000Z"
+      "created_at": "string (datetime)",
+      "updated_at": "string (datetime)"
     }
   }
 }
@@ -272,42 +272,42 @@ curl -X POST http://your-domain.com/api/v1/auth/register \
 **Response (201):**
 ```json
 {
-  "success": true,
-  "message": "User registered successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "user": {
-      "id": 2,
-      "name": "Jane Doe",
-      "email": "jane@example.com",
-      "email_verified_at": null,
+      "id": "integer",
+      "name": "string",
+      "email": "string (email)",
+      "email_verified_at": "null|string (datetime)",
       "company": {
-        "id": 1,
-        "name": "My Company",
-        "email": null,
-        "phone": null,
-        "address": null,
-        "logo": null,
-        "status": "active",
-        "is_default": true,
-        "created_at": "2024-01-01T12:00:00.000000Z",
-        "updated_at": "2024-01-01T12:00:00.000000Z"
+        "id": "integer",
+        "name": "string",
+        "email": "null|string (email)",
+        "phone": "null|string",
+        "address": "null|string",
+        "logo": "null|string (url)",
+        "status": "string",
+        "is_default": "boolean",
+        "created_at": "string (datetime)",
+        "updated_at": "string (datetime)"
       },
       "companies": [
         {
-          "id": 1,
-          "name": "My Company",
-          "email": null,
-          "phone": null,
-          "address": null,
-          "logo": null,
-          "status": "active",
-          "is_default": true,
-          "created_at": "2024-01-01T12:00:00.000000Z",
-          "updated_at": "2024-01-01T12:00:00.000000Z"
+          "id": "integer",
+          "name": "string",
+          "email": "null|string (email)",
+          "phone": "null|string",
+          "address": "null|string",
+          "logo": "null|string (url)",
+          "status": "string",
+          "is_default": "boolean",
+          "created_at": "string (datetime)",
+          "updated_at": "string (datetime)"
         }
       ],
-      "created_at": "2024-01-01T12:00:00.000000Z",
-      "updated_at": "2024-01-01T12:00:00.000000Z"
+      "created_at": "string (datetime)",
+      "updated_at": "string (datetime)"
     }
   }
 }
@@ -351,18 +351,18 @@ curl -X POST http://your-domain.com/api/v1/auth/register \
 **Response (201):**
 ```json
 {
-  "success": true,
-  "message": "User registered successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "user": {
-      "id": 3,
-      "name": "Bob Smith",
-      "email": "bob@example.com",
-      "email_verified_at": null,
-      "company": null,
-      "companies": [],
-      "created_at": "2024-01-01T12:00:00.000000Z",
-      "updated_at": "2024-01-01T12:00:00.000000Z"
+      "id": "integer",
+      "name": "string",
+      "email": "string (email)",
+      "email_verified_at": "null|string (datetime)",
+      "company": "null|object",
+      "companies": "array",
+      "created_at": "string (datetime)",
+      "updated_at": "string (datetime)"
     }
   }
 }
@@ -377,13 +377,13 @@ curl -X POST http://your-domain.com/api/v1/auth/register \
 **Error Response (422) - Validation Error:**
 ```json
 {
-  "success": false,
-  "message": "Validation errors",
+  "success": "boolean",
+  "message": "string",
   "errors": {
-    "name": ["The name field is required."],
-    "email": ["The email has already been taken."],
-    "password": ["The password must be at least 8 characters.", "The password confirmation does not match."],
-    "company_name": ["The company name may not be greater than 255 characters."]
+    "name": ["string"],
+    "email": ["string"],
+    "password": ["string"],
+    "company_name": ["string"]
   }
 }
 ```
@@ -391,16 +391,16 @@ curl -X POST http://your-domain.com/api/v1/auth/register \
 **Error Response (400) - Invalid Invitation Token:**
 ```json
 {
-  "success": false,
-  "message": "Invalid or expired invitation token."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (400) - Email Mismatch:**
 ```json
 {
-  "success": false,
-  "message": "Email does not match the invitation."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 

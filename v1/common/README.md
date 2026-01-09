@@ -6,8 +6,8 @@ All successful API responses follow this format:
 
 ```json
 {
-  "success": true,
-  "message": "Success message",
+  "success": "boolean",
+  "message": "string",
   "data": {
     // Response data
   }
@@ -23,10 +23,10 @@ All API endpoints follow a consistent error response format:
 ### Validation Errors (422)
 ```json
 {
-  "success": false,
-  "message": "Validation errors",
+  "success": "boolean",
+  "message": "string",
   "errors": {
-    "field_name": ["Error message 1", "Error message 2"]
+    "field_name": ["string"]
   }
 }
 ```
@@ -34,24 +34,24 @@ All API endpoints follow a consistent error response format:
 ### Authentication Errors (401)
 ```json
 {
-  "success": false,
-  "message": "Unauthenticated"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 ### Business Logic Errors (400)
 ```json
 {
-  "success": false,
-  "message": "Error message describing what went wrong"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 ### Server Errors (500)
 ```json
 {
-  "success": false,
-  "message": "Internal Server Error"  // In production
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
@@ -92,60 +92,60 @@ Users can have access to multiple companies through the `user_companies` pivot t
 ### User Object
 ```json
 {
-  "id": 1,
-  "name": "John Doe",
-  "email": "john@example.com",
-  "email_verified_at": null,
+  "id": "integer",
+  "name": "string",
+  "email": "string (email)",
+  "email_verified_at": "null|string (datetime)",
   "company": {
-    "id": 1,
-    "name": "My Company",
-    "email": null,
-    "phone": null,
-    "address": null,
-    "logo": null,
-    "status": "active",
-    "is_default": true,
-    "created_at": "2024-01-01T12:00:00.000000Z",
-    "updated_at": "2024-01-01T12:00:00.000000Z"
+    "id": "integer",
+    "name": "string",
+    "email": "null|string (email)",
+    "phone": "null|string",
+    "address": "null|string",
+    "logo": "null|string (url)",
+    "status": "string",
+    "is_default": "boolean",
+    "created_at": "string (datetime)",
+    "updated_at": "string (datetime)"
   },
   "companies": [
     {
-      "id": 1,
-      "name": "My Company",
-      "is_default": true,
+      "id": "integer",
+      "name": "string",
+      "is_default": "boolean",
       ...
     }
   ],
-  "created_at": "2024-01-01T12:00:00.000000Z",
-  "updated_at": "2024-01-01T12:00:00.000000Z"
+  "created_at": "string (datetime)",
+  "updated_at": "string (datetime)"
 }
 ```
 
 ### Company Object
 ```json
 {
-  "id": 1,
-  "name": "My Company",
-  "email": "company@example.com",
-  "phone": "+1234567890",
-  "address": "123 Main St",
-  "logo": "https://example.com/logo.png",
-  "status": "active",
-  "is_default": true,
-  "created_at": "2024-01-01T12:00:00.000000Z",
-  "updated_at": "2024-01-01T12:00:00.000000Z"
+  "id": "integer",
+  "name": "string",
+  "email": "null|string (email)",
+  "phone": "null|string",
+  "address": "null|string",
+  "logo": "null|string (url)",
+  "status": "string",
+  "is_default": "boolean",
+  "created_at": "string (datetime)",
+  "updated_at": "string (datetime)"
 }
 ```
 
 ### Invitation Object
 ```json
 {
-  "id": 1,
-  "email": "user@example.com",
-  "company_id": 1,
-  "invited_user_id": null,
-  "is_user_registered": false,
-  "expires_at": "2024-01-08T12:00:00.000000Z"
+  "id": "integer",
+  "email": "string (email)",
+  "company_id": "integer",
+  "invited_user_id": "null|integer",
+  "is_user_registered": "boolean",
+  "expires_at": "string (datetime)"
 }
 ```
 

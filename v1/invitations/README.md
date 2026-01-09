@@ -56,16 +56,16 @@ Authorization: Bearer {access_token}
 **Success Response (201):**
 ```json
 {
-  "success": true,
-  "message": "Invitation sent successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "invitation": {
-      "id": 1,
-      "email": "user@example.com",
-      "company_id": 1,
-      "invited_user_id": null,  // null if user not registered, user_id if registered
-      "is_user_registered": false,
-      "expires_at": "2024-01-08T12:00:00.000000Z"
+      "id": "integer",
+      "email": "string (email)",
+      "company_id": "integer",
+      "invited_user_id": "null|integer",  // null if user not registered, user_id if registered
+      "is_user_registered": "boolean",
+      "expires_at": "string (datetime)"
     }
   }
 }
@@ -74,16 +74,16 @@ Authorization: Bearer {access_token}
 **Example Response (User Already Registered):**
 ```json
 {
-  "success": true,
-  "message": "Invitation sent successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "invitation": {
-      "id": 1,
-      "email": "user@example.com",
-      "company_id": 1,
-      "invited_user_id": 5,  // User ID if already registered
-      "is_user_registered": true,
-      "expires_at": "2024-01-08T12:00:00.000000Z"
+      "id": "integer",
+      "email": "string (email)",
+      "company_id": "integer",
+      "invited_user_id": "integer",  // User ID if already registered
+      "is_user_registered": "boolean",
+      "expires_at": "string (datetime)"
     }
   }
 }
@@ -92,43 +92,43 @@ Authorization: Bearer {access_token}
 **Error Response (400) - Business Logic Error:**
 ```json
 {
-  "success": false,
-  "message": "User already has access to this company."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (400) - No Company Found:**
 ```json
 {
-  "success": false,
-  "message": "No company found. Please provide company_id or set a default company."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (400) - Permission Denied:**
 ```json
 {
-  "success": false,
-  "message": "You do not have permission to invite users to this company."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (400) - Duplicate Invitation:**
 ```json
 {
-  "success": false,
-  "message": "An active invitation already exists for this email and company."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (422) - Validation Error:**
 ```json
 {
-  "success": false,
-  "message": "Validation errors",
+  "success": "boolean",
+  "message": "string",
   "errors": {
-    "email": ["The email must be a valid email address."],
-    "company_id": ["The selected company does not exist."]
+    "email": ["string"],
+    "company_id": ["string"]
   }
 }
 ```
@@ -136,8 +136,8 @@ Authorization: Bearer {access_token}
 **Error Response (401) - Unauthenticated:**
 ```json
 {
-  "success": false,
-  "message": "Unauthenticated"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
@@ -169,30 +169,30 @@ Authorization: Bearer {access_token}
 **Success Response (200):**
 ```json
 {
-  "success": true,
-  "message": "Invitation accepted successfully",
+  "success": "boolean",
+  "message": "string",
   "data": {
     "user": {
-      "id": 2,
-      "name": "Jane Doe",
-      "email": "user@example.com",
-      "email_verified_at": null,
+      "id": "integer",
+      "name": "string",
+      "email": "string (email)",
+      "email_verified_at": "null|string (datetime)",
       "company": {
-        "id": 1,
-        "name": "My Company",
-        "is_default": true,
+        "id": "integer",
+        "name": "string",
+        "is_default": "boolean",
         ...
       },
       "companies": [
         {
-          "id": 1,
-          "name": "My Company",
-          "is_default": true,
+          "id": "integer",
+          "name": "string",
+          "is_default": "boolean",
           ...
         }
       ],
-      "created_at": "2024-01-01T12:00:00.000000Z",
-      "updated_at": "2024-01-01T12:00:00.000000Z"
+      "created_at": "string (datetime)",
+      "updated_at": "string (datetime)"
     }
   }
 }
@@ -201,18 +201,18 @@ Authorization: Bearer {access_token}
 **Error Response (400) - Invalid Token:**
 ```json
 {
-  "success": false,
-  "message": "Invalid or expired invitation token, or email mismatch."
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
 **Error Response (422) - Validation Error:**
 ```json
 {
-  "success": false,
-  "message": "Validation errors",
+  "success": "boolean",
+  "message": "string",
   "errors": {
-    "token": ["The invitation token is invalid."]
+    "token": ["string"]
   }
 }
 ```
@@ -220,8 +220,8 @@ Authorization: Bearer {access_token}
 **Error Response (401) - Unauthenticated:**
 ```json
 {
-  "success": false,
-  "message": "Unauthenticated"
+  "success": "boolean",
+  "message": "string"
 }
 ```
 
